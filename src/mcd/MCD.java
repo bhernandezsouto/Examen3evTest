@@ -14,36 +14,10 @@ public class MCD {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        int numero1, numero2;
-        
-        try
-        {
-            BufferedReader entradaTeclado = new BufferedReader(
-                new InputStreamReader(System.in));
-            System.out.print("Introduzca el número 1: ");
-            numero1 = Integer.parseInt(entradaTeclado.readLine());
-            System.out.print("Introduzca el número 2: ");
-            numero2 = Integer.parseInt(entradaTeclado.readLine());
-        
-            Calculo calculo = new Calculo();
-            calculo.setNumero1(numero1);
-            calculo.setNumero2(numero2);
-        
-            System.out.println("El MCD de " + calculo.getNumero1() + " y " + 
-                    calculo.getNumero2() + " es: " + calculo.obtenerMCD(calculo.getNumero1(),calculo.getNumero2()));
-
-            System.out.println("Resultado del cálculo: " + 
-                    calculo.getMensajeResultado());            
-        }
-        catch (NumberFormatException e) 
-        {
-            System.out.println("Debe introducir un número válido: " +
-                    e.getMessage());
-        }
-        catch (IOException e)
-        {
-            System.out.println("Error al introducir datos: " + 
-                    e.getMessage());            
-        }        
-}
+        int num1,num2;
+        Calculo ob = new Calculo();
+        num1=ob.pedirDato();
+        num2=ob.pedirDato();
+        System.out.println(ob.mensaje(num1,num2));
+    }
 }

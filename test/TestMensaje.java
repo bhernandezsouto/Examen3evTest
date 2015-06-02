@@ -21,15 +21,15 @@ import org.junit.runners.Parameterized;
  * @author Bea
  */
 @RunWith(Parameterized.class)
-public class BateriaObtenerMCDTest {
+public class TestMensaje {
 
     private int input;
     private int input2;
-    private int esperado;
+    private String esperado;
     private Calculo cal;
     
 
-    public BateriaObtenerMCDTest (int input,int input2, int esperado) {
+    public TestMensaje (int input,int input2, String esperado) {
         this.input = input;
         this.input2 = input2;
         this.esperado = esperado;
@@ -44,16 +44,16 @@ public class BateriaObtenerMCDTest {
     public static Collection MCD() {
         return Arrays.asList(new Object[][]{
             {-3,-2,"Error, Numero Negativo"},
-            {10,5,5},
-            {56,24,8},
-            {3,2,1}
+            {10,5,"MCD Realizado con exito"},
+            {56,24,"MCD Realizado con exito"},
+            {3,2,"MCD Realizado con exito"}
         });
     }
 
     @Test
     public void testeo() {
         System.out.println("Los Números parametrizados son: " + input + input2 + ". El valor esperado es :" + esperado);
-        assertTrue(cal.obtenerMCD(input, input2) == esperado);
+        assertTrue(cal.mensaje(input, input2) == esperado);
     }
 
 }
